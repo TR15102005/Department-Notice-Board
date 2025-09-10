@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Department Notice Board — Packer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Department Notice Board — Packer</h1>
+      <p class="muted">Create notices, attach files, select multiple notices and pack them into one downloadable package.</p>
+    </header>
+
+    <!-- Add / Create Notice -->
+    <section class="card form-card">
+      <h2>Create Notice</h2>
+      <form id="noticeForm" enctype="multipart/form-data">
+        <div class="grid">
+          <label>Title
+            <input type="text" id="title" placeholder="Notice title" required>
+          </label>
+
+          <label>Department
+            <select id="department">
+              <option value="all">All Departments</option>
+              <option value="cs">Computer Science</option>
+              <option value="ee">Electrical Engg</option>
+              <option value="me">Mechanical Engg</option>
+              <option value="ce">Civil Engg</option>
+            </select>
+          </label>
+
+          <label>Date
+            <input type="date" id="date">
+          </label>
+
+          <label>Tags (comma separated)
+            <input type="text" id="tags" placeholder="seminar, exam, placement">
+          </label>
+
+          <label>Attachment (optional)
+            <input type="file" id="attachment" multiple>
+            <small class="muted">Multiple files allowed. Files are stored client-side only.</small>
+          </label>
+
+          <label>Notice Content
+            <textarea id="content" rows="4" placeholder="Write the notice details..." required></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="addNotice">Add Notice</button>
+          <button type="button" id="clearAll" class="ghost">Clear All Notices</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Notices List and pack actions -->
+    <section class="card table-card">
+      <div class="table-header">
+        <h2>Notices</h2>
+        <div class="controls">
+          <input id="search" placeholder="Search title / tags / dept">
+          <button id="packSelected" class="ghost">Pack Selected</button>
+          <button id="exportAll" class="ghost">Export All JSON</button>
+        </div>
+      </div>
+
+      <table id="noticeTable">
+        <thead>
+          <tr>
+            <th><input id="selectAll" type="checkbox" title="Select all"></th>
+            <th>Title</th>
+            <th>Dept</th>
+            <th>Date</th>
+            <th>Tags</th>
+            <th>Files</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <p id="emptyMsg" class="muted" style="display:none; margin-top:10px;">No notices yet — create one above.</p>
+    </section>
+
+    <footer class="muted">This is a client-side demo. For production, add server storage and authentication.</footer>
+  </main>
+
+  <!-- Script: implement packing / storage logic in script.js -->
+  <script src="script.js"></script>
+</body>
+</html>

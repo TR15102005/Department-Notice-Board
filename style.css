@@ -1,0 +1,153 @@
+/* Reset & basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+
+body {
+  background: #f9fbfd;
+  color: #1a1a1a;
+  padding: 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: #555;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+/* Form */
+.grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+}
+
+input[type=text],
+input[type=date],
+input[type=file],
+textarea,
+select {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+/* Table */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th, td {
+  padding: 8px;
+  border-top: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  background: #f0f4f8;
+  font-weight: 600;
+}
+
+td small {
+  color: #666;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #d9534f;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+  }
+  thead { display: none; }
+  td {
+    border: 0;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+  }
+  td:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+}
